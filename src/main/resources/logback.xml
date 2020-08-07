@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+    
+  
+  <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+  </appender>
+
+  
+  <appender name="fluentd" class="ch.qos.logback.more.appenders.DataFluentAppender">
+        <remoteHost>fluentd</remoteHost>
+        <port>24224</port>
+        <maxQueueSize>20</maxQueueSize>
+ </appender>
+ 
+  
+  <logger name="jsonLogger" additivity="false" level="DEBUG"/>
+<!--     <appender-ref ref="consoleAppender"/>
+  </logger> -->
+  
+  <root level="INFO">
+    <appender-ref ref="consoleAppender"/>
+    <appender-ref ref="fluentd"/>
+  </root>
+
+
+</configuration>
