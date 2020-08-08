@@ -11,7 +11,6 @@
   <appender name="fluentd" class="ch.qos.logback.more.appenders.DataFluentAppender">
         <remoteHost>fluentd</remoteHost>
         <port>24224</port>
-        <maxQueueSize>20</maxQueueSize>
  </appender>
  
   
